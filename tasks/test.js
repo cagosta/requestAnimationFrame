@@ -81,7 +81,6 @@ module.exports = function( grunt ) {
     ] )
 
     grunt.registerTask( 'test:all', 'Run tests in all environements', [
-        'test:browser',
         'test:node',
         'test:headless'
     ] )
