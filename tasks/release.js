@@ -13,7 +13,7 @@ var Releaser = function( o ) {
         updateConfigs: [ 'config' ],
         commit: true,
         commitMessage: 'Releasing v%VERSION%',
-        commitFiles: [ 'package.json', 'bower.json', 'app/<%= config.name.raw %>.js', 'dist' ], // '-a' for all files
+        commitFiles: [ 'package.json', 'bower.json', 'app/<%= config.name.raw %>.js', 'dist', 'test/index_build.html' ], // '-a' for all files
         createTag: true,
         tagName: 'v%VERSION%',
         tagMessage: 'Version %VERSION%',
