@@ -1,6 +1,6 @@
 {
   "name": "requestanimationframe",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "private": false,
   "keywords": [],
   "contributors": [
@@ -57,7 +57,7 @@
     }
   ],
   "scripts": {
-    "postinstall": "node postinstall.js",
+    "postinstall": "node app/postinstall.js",
     "test": "node_modules/.bin/grunt test"
   },
   "engines": {
