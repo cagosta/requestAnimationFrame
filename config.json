@@ -109,12 +109,15 @@
                 "ies": [
                     {
                         "browserName": "internet explorer",
-                        "platform": "VISTA",
-                        "version": "9"
-                    }, {
+                        "version": "7"
+                    },
+                    {
                         "browserName": "internet explorer",
-                        "platform": "XP",
                         "version": "8"
+                    },
+                    {
+                        "browserName": "internet explorer",
+                        "version": "9"
                     }
                 ]
             }
