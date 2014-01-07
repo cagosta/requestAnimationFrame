@@ -1,0 +1,66 @@
+{
+  "name": "requestanimationframe",
+  "version": "0.0.5",
+  "private": false,
+  "keywords": [],
+  "contributors": [
+    "Cyril Agosta <cyril.agosta.dev@gmail.com>"
+  ],
+  "description": "requestAnimationFrame AMD-ready, bower-ready polyfill fork.",
+  "devDependencies": {
+    "grunt": "~0.4.x",
+    "grunt-contrib-connect": "~0.2.x",
+    "grunt-contrib-watch": "~0.4.x",
+    "grunt-bower-requirejs": "0.8.x",
+    "grunt-open": "~0.2.x",
+    "grunt-exec": "~0.4.x",
+    "grunt-release": "~0.6.x",
+    "grunt-contrib-requirejs": "~0.4.x",
+    "grunt-text-replace": "~0.3.x",
+    "grunt-contrib-copy": "~0.4.x",
+    "grunt-contrib-stylus": "~0.11.x",
+    "grunt-jsdoc": "~0.4.x",
+    "grunt-bump": "0.0.x",
+    "matchdep": "~0.1.x",
+    "connect-livereload": "~0.1.x",
+    "mime": "~1.2.x",
+    "rimraf": "~2.2.x",
+    "ink-docstrap": "~0.2.x",
+    "mocha": "~1.16.x",
+    "mocha-phantomjs": "~3.3.x",
+    "phantomjs": "~1.9.x",
+    "grunt-saucelabs": "~4.1.2"
+  },
+  "dependencies": {
+    "requirejs": "~2.1.x",
+    "grunt-cli": "~0.1.x"
+  },
+  "peerDependencies": {
+    "bower": "~1.x"
+  },
+  "homepage": "https://github.com/cagosta/requestAnimationFrame",
+  "bugs": "https://github.com/cagosta/requestAnimationFrame/issues",
+  "author": {
+    "name": "Cyril Agosta",
+    "email": "cyril.agosta.dev@gmail.com",
+    "url": "https://github.com/cagosta/requestAnimationFrame"
+  },
+  "main": "app/main.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "link": "http://opensource.org/licenses/MIT"
+    }
+  ],
+  "scripts": {
+    "postinstall": "node postinstall.js",
+    "test": "node_modules/.bin/grunt test"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  }
+}

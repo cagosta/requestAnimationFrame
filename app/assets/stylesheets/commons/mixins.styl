@@ -1,0 +1,17 @@
+
+bower_component_path( relative )
+    "../../../bower_components/" + relative
+ 
+url_wrap( arg )
+    url( arg ) 
+  
+asset_url( relative )
+    url_wrap( assets_host + "/assets/" + relative )
+ 
+image_url( relative )
+    asset_url( "images/" + relative )
+
+inline_image_url( relative )
+    embedurl( "../images/" + relative )
+
+
