@@ -5,7 +5,7 @@
  */
 
 /**
- * requestAnimationFrame version: "0.0.6" Copyright (c) 2011-2012, Cyril Agosta ( cyril.agosta.dev@gmail.com) All Rights Reserved.
+ * requestAnimationFrame version: "0.0.7" Copyright (c) 2011-2012, Cyril Agosta ( cyril.agosta.dev@gmail.com) All Rights Reserved.
  * Available via the MIT license.
  * see: http://github.com/cagosta/requestAnimationFrame for details
  *
