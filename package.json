@@ -59,7 +59,7 @@
   ],
   "scripts": {
     "postinstall": "node postinstall.js",
-    "test": "node_modules/.bin/grunt test:all"
+    "test": "node_modules/.bin/grunt test:headless"
   },
   "engines": {
     "node": ">=0.8.0"

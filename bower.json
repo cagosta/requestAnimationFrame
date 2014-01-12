@@ -11,8 +11,7 @@
   ],
   "dependencies": {
     "requirejs": "~2.1.9",
-    "requirejs-plugins": "~1.0.2",
-    "engineDetector": "~0.0.x"
+    "requirejs-plugins": "~1.0.2"
   },
   "devDependencies": {
     "sinonjs": "~1.7.3",

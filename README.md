@@ -17,16 +17,7 @@ See [cagosta.github.io/requestAnimationFrame](http://cagosta.github.io/requestAn
 
 requestAnimationFrame is coded as [AMD module](http://requirejs.org/docs/whyamd.html) but can be installed with npm, bower or old-fashioned src=".min.js".
 
-#### With npm: ####
 
-```
-npm install requestanimationframe
-```
-
-and use it with nodejs: 
-```
-var requestAnimationFrame = require('requestanimationframe')
-```
 
 #### With bower: ####
 
