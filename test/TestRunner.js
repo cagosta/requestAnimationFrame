@@ -1,10 +1,10 @@
 define( [
     'chai',
-    // 'chai-as-promised',
+    'chai-as-promised',
     'sinonjs',
     'sinon-chai',
     'mocha'
- ], function( chai,  sinon, sinonChai, mocha ) {
+ ], function( chai, chaiAsPromise, sinon, sinonChai, mocha ) {
 
 
 
@@ -42,7 +42,7 @@ define( [
         this.initializeMocha()
 
         this.chai = chai
-        // this.chai.use( chaiAsPromise )
+        this.chai.use( chaiAsPromise )
         this.chai.use( sinonChai )
 
         this.defineGlobals()

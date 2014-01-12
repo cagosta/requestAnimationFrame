@@ -10,6 +10,9 @@ This is just a tested AMD-modularized bower-ready fork.
 
 
 
+## Demo ##
+See [cagosta.github.io/requestAnimationFrame](http://cagosta.github.io/requestAnimationFrame) 
+
 ## Install ##
 
 requestAnimationFrame is coded as [AMD module](http://requirejs.org/docs/whyamd.html) but can be installed with npm, bower or old-fashioned src=".min.js".

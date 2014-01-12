@@ -7,6 +7,9 @@ var Releaser = function( o ) {
         command: 'npm publish'
     } )
 
+    this.isPrivate = !! this.grunt.config.get( 'config.private' )
+    this.browserOnly = !! this.grunt.config.get( 'config.browserOnly' )
+    this.doPush = !this.isPrivate
 
     this.grunt.config.set( 'bump.options', {
         files: [ 'package.json', 'bower.json', 'app/<%= config.name.raw %>.js' ],
@@ -17,8 +20,8 @@ var Releaser = function( o ) {
         createTag: true,
         tagName: 'v%VERSION%',
         tagMessage: 'Version %VERSION%',
-        push: true,
-        pushTo: 'origin master',
+        push: this.doPush,
+        pushTo: 'origin master'
     } )
 
     this.run()
@@ -43,7 +46,11 @@ Releaser.prototype = {
     },
 
     push: function() {
-        this.grunt.task.run( [ 'bump-commit', 'exec:npm_publish' ] )
+        if ( this.isPrivate || this.browserOnly ) {
+            this.grunt.task.run( [ 'bump-commit' ] )
+        } else {
+            this.grunt.task.run( [ 'bump-commit', 'exec:npm_publish' ] )
+        }
     }
 
 

@@ -1,12 +1,13 @@
 module.exports = function( grunt ) {
 
+    var isPrivate = grunt.config.get( 'config.private' )
 
 
     grunt.registerTask( 'git:add_origin', function() {
 
         grunt.config.set( 'exec.git_add_origin', {
 
-            command: 'git remote add origin git@github.com:<%= config.github.path %>.git'
+            command: 'git remote add origin git@github.com:cagosta/<%= config.name.raw %>'
 
         } )
 
@@ -14,18 +15,33 @@ module.exports = function( grunt ) {
 
     } )
 
-    grunt.registerTask( 'git:push_set_upstream', function() {
+    if ( ! isPrivate ) {
 
-        grunt.config.set( 'exec.git_set_upstream', {
+        grunt.registerTask( 'git:push_set_upstream', function() {
 
-            command: 'git push --set-upstream origin master'
+            grunt.config.set( 'exec.git_set_upstream', {
+
+                command: 'git push --set-upstream origin master'
+
+            } )
+
+            grunt.task.run( 'exec:git_set_upstream' )
 
         } )
 
-        grunt.task.run( 'exec:git_set_upstream' )
+        grunt.registerTask( 'git:create_github_repo', function() {
 
-    } )
+            var curlCommand = grunt.config.process( 'curl -u \'cagosta\' https://api.github.com/user/repos -d \'{"name":"<%= config.name.raw %>"}\'' )
 
+            grunt.config.set( 'exec.git_create_github_repo', {
+                command: curlCommand
+            } )
+
+            grunt.task.run( 'exec:git_create_github_repo' )
+
+        } )
+
+    }
 
     grunt.config.set( 'exec.git_add_dist', {
 
@@ -47,17 +63,6 @@ module.exports = function( grunt ) {
 
     } )
 
-    grunt.registerTask( 'git:create_github_repo', function() {
-
-        var curlCommand = grunt.config.process( 'curl -u \'cagosta\' https://api.github.com/user/repos -d \'{"name":"<%= config.name.raw %>"}\'' )
-
-        grunt.config.set( 'exec.git_create_github_repo', {
-            command: curlCommand
-        } )
-
-        grunt.task.run( 'exec:git_create_github_repo' )
-
-    } )
 
     grunt.registerTask( 'git:init', function() {
 
@@ -69,7 +74,9 @@ module.exports = function( grunt ) {
 
     } )
 
+
     grunt.registerTask( 'git:install', [ 'git:init', 'git:create_github_repo', 'git:initial_commit', 'git:add_origin' ] )
 
+    grunt.registerTask( 'git:private_install', [ 'git:init', 'git:initial_commit' ] )
 
 }

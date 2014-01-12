@@ -35,7 +35,6 @@ StylesheetMaker.prototype = {
             this.path.stylesheets,
             this.path.cssFilename
         ].join( '/' )
-        this.log()
     },
 
     setGruntStylusConfig: function() {
@@ -77,7 +76,6 @@ StylesheetMaker.prototype = {
 module.exports = function( grunt ) {
 
     grunt.registerTask( 'make_stylesheets', function() {
-        console.log( 'make stylesheets' )
         new StylesheetMaker( {
             grunt: grunt
         } )

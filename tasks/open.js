@@ -4,7 +4,7 @@ module.exports = function( grunt ) {
     grunt.config.set( 'open', {
 
         server_index: {
-            path: 'http://localhost:<%= config.server.port %>'
+            path: 'http://localhost:5000'
         },
 
         test_page: {
@@ -12,7 +12,7 @@ module.exports = function( grunt ) {
         },
 
         host: {
-            path: 'http://<%= config.deploy.host %>'
+            path: 'http://mangrove.dk'
         }
 
     } )

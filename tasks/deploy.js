@@ -1,20 +1,23 @@
 var Deployer = function( o ) {
 
     this.grunt = o.grunt
+    this.config = this.grunt.mangroveConfig
+
+    // console.log(this.grunt.mangroveConfig)
+    this.ghPagesDeploy = this.config.get( 'deploy.gh_pages' )
+    this.privateHostDeploy = this.config.get( 'deploy.private_host' )
+    this.isPrivate = this.config.get( 'private' )
+
     this.setExecGruntConfig()
     this.skipBuild = this.grunt.option( 'skipBuild' )
     this.run()
-    
+
 }
 
 
 Deployer.prototype = {
 
     setExecGruntConfig: function() {
-
-        // this.grunt.config.set( 'config.build', {
-        //     dir: ''
-        // } )
 
         var command = this.grunt.config.process( 'rsync -e ssh -avzO ./dist/build/ cyril@mangrove.dk:/var/www/mangrove.dk/<%= config.name.raw %>' )
 
@@ -25,10 +28,16 @@ Deployer.prototype = {
     },
 
     run: function() {
-        if ( this.skipBuild )
-            this.grunt.task.run( [ 'exec:send' ] )
-        else
-            this.grunt.task.run( [ 'build', 'exec:send' ] )
+
+        var tasks = []
+
+        if ( ! this.isPrivate && this.ghPagesDeploy  )
+            tasks.push( 'publish_gh_pages' )
+
+        if ( this.privateHostDeploy )
+            tasks.push( 'exec:send' )
+
+        this.grunt.task.run( tasks )
     }
 
 }
@@ -38,7 +47,7 @@ module.exports = function( grunt ) {
     grunt.registerTask( 'deploy', function() {
 
         new Deployer( {
-            grunt: grunt,
+            grunt: grunt
         } )
 
     } )

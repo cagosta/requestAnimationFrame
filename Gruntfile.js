@@ -4,6 +4,7 @@
 var GruntInitializer = function( o ) {
     this.grunt = o.grunt
     this.initiliazeConfig()
+    this.defineGruntGlobals()
     this.initializeGrunt()
     this.loadGruntDependencies()
     this.loadTasks()
@@ -25,6 +26,14 @@ GruntInitializer.prototype = {
             if ( this.packageConfig.hasOwnProperty( i ) )
                 if ( !this.config[ i ] )
                     this.config[ i ] = this.packageConfig[ i ]
+    },
+
+    defineGruntGlobals: function() {
+        this.grunt.mangroveConfig = this
+    },
+
+    get: function( path ){
+        return this.grunt.config.get( 'config.' + path )
     },
 
     loadGruntDependencies: function() {
