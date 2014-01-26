@@ -12,7 +12,7 @@ module.exports = function( grunt ) {
         },
 
         host: {
-            path: 'http://mangrove.dk'
+            path: 'http://<%= config.deploy.host %>'
         }
 
     } )

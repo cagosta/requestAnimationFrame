@@ -9,7 +9,6 @@ var Releaser = function( o ) {
 
     this.isPrivate = !! this.grunt.config.get( 'config.private' )
     this.browserOnly = !! this.grunt.config.get( 'config.browserOnly' )
-    this.doPush = !this.isPrivate
 
     this.grunt.config.set( 'bump.options', {
         files: [ 'package.json', 'bower.json', 'app/<%= config.name.raw %>.js' ],
@@ -20,7 +19,7 @@ var Releaser = function( o ) {
         createTag: true,
         tagName: 'v%VERSION%',
         tagMessage: 'Version %VERSION%',
-        push: this.doPush,
+        push: true,
         pushTo: 'origin master'
     } )
 

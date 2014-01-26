@@ -70,6 +70,10 @@ Builder.prototype = {
                     dest: 'dist/build/assets/'
                 },
                 {
+                    src: 'app/favicon.png',
+                    dest: 'dist/build/favicon.png'
+                },
+                {
                     src: 'app/bower_components/requirejs/require.js',
                     dest: 'dist/build/bower_components/requirejs/require.js'
                 },

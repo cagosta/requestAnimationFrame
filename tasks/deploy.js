@@ -19,7 +19,7 @@ Deployer.prototype = {
 
     setExecGruntConfig: function() {
 
-        var command = this.grunt.config.process( 'rsync -e ssh -avzO ./dist/build/ cyril@mangrove.dk:/var/www/mangrove.dk/<%= config.name.raw %>' )
+        var command = this.grunt.config.process( 'rsync -e ssh -avzO ./dist/build/ <%= config.deploy.user %>@<%= config.deploy.host %>:<%= config.deploy.dir %>' )
 
         this.grunt.config.set( 'exec.send', {
             command: command
