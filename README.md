@@ -16,7 +16,20 @@ bower install requestAnimationFrame
 ```
 
 
-#### With amd
+#### With src="requestAnimationFrame.js" ####
+
+
+Inlude app/requestAnimationFrame.js into your html page
+
+```html
+<script src="[path_to_source]/requestAnimationFrame.js>"></script>
+```
+
+## Use ##
+
+This is a polyfill, just use requestAnimationFrame as you would have.
+
+### With amd
 Point `requestAnimationFrame` to `[bower_components_path]/requestAnimationFrame/app/requestAnimationFrame.js` into your requirejs path config 
 and load it with requirejs:  
 
@@ -25,17 +38,6 @@ require(['requestAnimationFrame'], function( requestAnimationFrame ){
 
 })
 ```
-
-
-#### With src="requestAnimationFrame.js" ####
-
-
-Inside app/requestAnimationFrame.js into your html page
-
-```html
-<script src="[path_to_source]/requestAnimationFrame.js>"></script>
-```
-
 
 
 
