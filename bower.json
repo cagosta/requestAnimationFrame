@@ -2,24 +2,12 @@
   "name": "requestAnimationFrame",
   "version": "0.0.17",
   "main": [
-    "app"
+    "app/requestAnimationFrame.js"
   ],
-  "licenses": [
-    {
-      "type": "MIT"
-    }
-  ],
-  "dependencies": {
-    "requirejs": "~2.1.9",
-    "requirejs-plugins": "~1.0.2"
-  },
+  "licenses": [ {
+    "type": "MIT"
+  } ],
   "devDependencies": {
-    "sinonjs": "~1.7.3",
-    "chai": "~1.8.1",
-    "chai-as-promised": "~4.1.0",
-    "sinon-chai": "~2.4.0",
-    "mocha": "~1.15.1",
-    "almond": "~0.2.7",
-    "normalize-css": "~2.1.3"
+    "requirejs": "~2.1.9"
   }
 }
