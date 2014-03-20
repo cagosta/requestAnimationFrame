@@ -2,7 +2,7 @@
   "name": "requestAnimationFrame",
   "version": "0.0.17",
   "main": [
-    "app"
+    "./app/requestAnimationFrame.js"
   ],
   "licenses": [
     {
