@@ -11,7 +11,7 @@
  */
 
 
-define( function() {
+( function() {
 
 
 
@@ -48,6 +48,10 @@ define( function() {
         clearTimeout( id );
     };
 
-    return window.requestAnimationFrame;
+    if ( typeof define === 'function' ) {
+        define( function() {
+          return window.requestAnimationFrame;
+        } )
+    }
 
-} )
+} )();
