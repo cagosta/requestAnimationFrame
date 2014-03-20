@@ -1,6 +1,6 @@
 {
   "name": "requestAnimationFrame",
-  "version": "0.0.17",
+  "version": "0.0.19",
   "main": [
     "app/requestAnimationFrame.js"
   ],
