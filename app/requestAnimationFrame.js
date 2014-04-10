@@ -11,32 +11,32 @@
  */
 
 
-( function() {
+( function(global) {
 
 
 
-    if ( typeof window === 'undefined' )
+    if ( typeof global === 'undefined' )
         return
 
-    if ( window.requestAnimationFrame )
-        return window.requestAnimationFrame
+    if ( global.requestAnimationFrame )
+        return global.requestAnimationFrame
 
 
-    if ( window.webkitRequestAnimationFrame ) { // Chrome <= 23, Safari <= 6.1, Blackberry 10
-        window.requestAnimationFrame = window[ 'webkitRequestAnimationFrame' ];
-        window.cancelAnimationFrame = window[ 'webkitCancelAnimationFrame' ] || window[ 'webkitCancelRequestAnimationFrame' ];
-        return window.requestAnimationFrame
+    if ( global.webkitRequestAnimationFrame ) { // Chrome <= 23, Safari <= 6.1, Blackberry 10
+        global.requestAnimationFrame = global[ 'webkitRequestAnimationFrame' ];
+        global.cancelAnimationFrame = global[ 'webkitCancelAnimationFrame' ] || global[ 'webkitCancelRequestAnimationFrame' ];
+        return global.requestAnimationFrame
     }
 
     // IE <= 9, Android <= 4.3, very old/rare browsers
 
     var lastTime = 0;
 
-    window.requestAnimationFrame = function( callback, element ) {
+    global.requestAnimationFrame = function( callback, element ) {
 
         var currTime = new Date().getTime();
         var timeToCall = Math.max( 0, 16 - ( currTime - lastTime ) );
-        var id = window.setTimeout( function() {
+        var id = global.setTimeout( function() {
                 callback( currTime + timeToCall );
             },
             timeToCall );
@@ -44,14 +44,14 @@
         return id; // return the id for cancellation capabilities
     };
 
-    window.cancelAnimationFrame = function( id ) {
+    global.cancelAnimationFrame = function( id ) {
         clearTimeout( id );
     };
 
     if ( typeof define === 'function' ) {
         define( function() {
-            return window.requestAnimationFrame;
+            return global.requestAnimationFrame;
         } )
     }
 
-} )();
+} )(window);
