@@ -1,5 +1,5 @@
 {
-  "name": "requestAnimationFrame",
+  "name": "requestanimationframe",
   "version": "0.0.21",
   "description": "requestAnimationFrame AMD-ready, bower-ready polyfill fork. ",
   "main": "app/requestAnimationFrame.js",
