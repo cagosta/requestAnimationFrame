@@ -4,8 +4,5 @@
   "main": "app/requestAnimationFrame.js",
   "licenses": [ {
     "type": "MIT"
-  } ],
-  "devDependencies": {
-    "requirejs": "~2.1.9"
-  }
+  } ]
 }
