@@ -11,47 +11,58 @@
  */
 
 
-( function(global) {
+( function( global ) {
 
 
-
-    if ( typeof global === 'undefined' )
-        return
-
-    if ( global.requestAnimationFrame )
-        return global.requestAnimationFrame
+    ( function() {
 
 
-    if ( global.webkitRequestAnimationFrame ) { // Chrome <= 23, Safari <= 6.1, Blackberry 10
-        global.requestAnimationFrame = global[ 'webkitRequestAnimationFrame' ];
-        global.cancelAnimationFrame = global[ 'webkitCancelAnimationFrame' ] || global[ 'webkitCancelRequestAnimationFrame' ];
-        return global.requestAnimationFrame
-    }
+        if ( global.webkitRequestAnimationFrame ) { // Chrome <= 23, Safari <= 6.1, Blackberry 10
 
-    // IE <= 9, Android <= 4.3, very old/rare browsers
+            global.requestAnimationFrame = global[ 'webkitRequestAnimationFrame' ];
+            global.cancelAnimationFrame = global[ 'webkitCancelAnimationFrame' ] || global[ 'webkitCancelRequestAnimationFrame' ];
 
-    var lastTime = 0;
+        }
 
-    global.requestAnimationFrame = function( callback, element ) {
+        // IE <= 9, Android <= 4.3, very old/rare browsers
 
-        var currTime = new Date().getTime();
-        var timeToCall = Math.max( 0, 16 - ( currTime - lastTime ) );
-        var id = global.setTimeout( function() {
+        var lastTime = 0;
+
+        global.requestAnimationFrame = function( callback, element ) {
+
+            var currTime = new Date().getTime();
+
+            var timeToCall = Math.max( 0, 16 - ( currTime - lastTime ) );
+
+            var id = global.setTimeout( function() {
+
                 callback( currTime + timeToCall );
-            },
-            timeToCall );
-        lastTime = currTime + timeToCall;
-        return id; // return the id for cancellation capabilities
-    };
 
-    global.cancelAnimationFrame = function( id ) {
-        clearTimeout( id );
-    };
+            }, timeToCall );
+
+            lastTime = currTime + timeToCall;
+
+            return id; // return the id for cancellation capabilities
+
+        };
+
+        global.cancelAnimationFrame = function( id ) {
+
+            clearTimeout( id );
+
+        };
+
+    } )();
+
 
     if ( typeof define === 'function' ) {
+
         define( function() {
+
             return global.requestAnimationFrame;
-        } )
+
+        } );
+
     }
 
-} )(window);
+} )( window );
