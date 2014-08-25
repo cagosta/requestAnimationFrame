@@ -17,6 +17,12 @@
     ( function() {
 
 
+        if ( global.requestAnimationFrame ) {
+
+            return;
+
+        }
+
         if ( global.webkitRequestAnimationFrame ) { // Chrome <= 23, Safari <= 6.1, Blackberry 10
 
             global.requestAnimationFrame = global[ 'webkitRequestAnimationFrame' ];
@@ -53,7 +59,6 @@
         };
 
     } )();
-
 
     if ( typeof define === 'function' ) {
 
