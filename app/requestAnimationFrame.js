@@ -28,7 +28,7 @@
 
         var lastTime = 0;
 
-        global.requestAnimationFrame = function( callback, element ) {
+        global.requestAnimationFrame = function( callback ) {
 
             var currTime = new Date().getTime();
 
