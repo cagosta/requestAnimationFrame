@@ -1,0 +1,15 @@
+{
+  "name": "requestAnimationFrame",
+  "version": "0.0.21",
+  "description": "requestAnimationFrame AMD-ready, bower-ready polyfill fork. ",
+  "main": "app/requestAnimationFrame.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/cagosta/requestAnimationFrame"
+  },
+  "author": "Cyril Agosta",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cagosta/requestAnimationFrame/issues"
+  }
+}
