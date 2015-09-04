@@ -9,65 +9,39 @@
  * MIT license
  *
  */
-
-
-( function( global ) {
-
-
-    ( function() {
-
-
-        if ( global.requestAnimationFrame ) {
-
-            return;
-
-        }
-
-        if ( global.webkitRequestAnimationFrame ) { // Chrome <= 23, Safari <= 6.1, Blackberry 10
-
-            global.requestAnimationFrame = global[ 'webkitRequestAnimationFrame' ];
-            global.cancelAnimationFrame = global[ 'webkitCancelAnimationFrame' ] || global[ 'webkitCancelRequestAnimationFrame' ];
-
-        }
-
-        // IE <= 9, Android <= 4.3, very old/rare browsers
-
-        var lastTime = 0;
-
-        global.requestAnimationFrame = function( callback ) {
-
-            var currTime = new Date().getTime();
-
-            var timeToCall = Math.max( 0, 16 - ( currTime - lastTime ) );
-
-            var id = global.setTimeout( function() {
-
-                callback( currTime + timeToCall );
-
-            }, timeToCall );
-
-            lastTime = currTime + timeToCall;
-
-            return id; // return the id for cancellation capabilities
-
-        };
-
-        global.cancelAnimationFrame = function( id ) {
-
-            clearTimeout( id );
-
-        };
-
-    } )();
-
-    if ( typeof define === 'function' ) {
-
-        define( function() {
-
-            return global.requestAnimationFrame;
-
-        } );
-
+(function (global) {
+  (function () {
+    if (global.requestAnimationFrame) {
+      return;
     }
 
-} )( window );
+    if (global.webkitRequestAnimationFrame) { // Chrome <= 23, Safari <= 6.1, Blackberry 10
+      global.requestAnimationFrame = global['webkitRequestAnimationFrame'];
+      global.cancelAnimationFrame = global['webkitCancelAnimationFrame'] || global['webkitCancelRequestAnimationFrame'];
+    }
+
+    // IE <= 9, Android <= 4.3, very old/rare browsers
+    var lastTime = 0;
+    global.requestAnimationFrame = function (callback) {
+      var currTime = new Date().getTime();
+      var timeToCall = Math.max(0, 16 - ( currTime - lastTime ));
+      var id = global.setTimeout(function () {
+        callback(currTime + timeToCall);
+      }, timeToCall);
+
+      lastTime = currTime + timeToCall;
+
+      return id; // return the id for cancellation capabilities
+    };
+
+    global.cancelAnimationFrame = function (id) {
+      clearTimeout(id);
+    };
+  })();
+
+  if (typeof define === 'function') {
+    define(function () {
+      return global.requestAnimationFrame;
+    });
+  }
+})(window);
