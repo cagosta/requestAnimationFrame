@@ -27,6 +27,7 @@
 
             global.requestAnimationFrame = global[ 'webkitRequestAnimationFrame' ];
             global.cancelAnimationFrame = global[ 'webkitCancelAnimationFrame' ] || global[ 'webkitCancelRequestAnimationFrame' ];
+            return;
 
         }
 
