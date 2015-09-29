@@ -64,9 +64,10 @@
     if ( typeof define === 'function' ) {
 
         define( function() {
-
-            return global.requestAnimationFrame;
-
+            return {
+                requestAnimationFrame: global.requestAnimationFrame,
+                cancelAnimationFrame: global.cancelAnimationFrame
+            }
         } );
 
     }
